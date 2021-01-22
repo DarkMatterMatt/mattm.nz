@@ -78,6 +78,12 @@ export default {
     },
     mounted () {
         this.scrollToHash();
+
+        let scrollFinishedTimeout;
+        this.$el.addEventListener("scroll", () => {
+            clearTimeout(scrollFinishedTimeout);
+            scrollFinishedTimeout = setTimeout(() => this.onScrollFinish(), 100);
+        });
     },
     methods: {
         scrollToHash () {
@@ -86,44 +92,45 @@ export default {
                 if (anchor) {
                     anchor.scrollIntoView();
                     this.hideTooltips = true;
-                    this.$nextTick(() => this.hideTooltips = false);
+                    this.$nextTick(() => {
+                        this.hideTooltips = false;
+                    });
                 }
             }
+        },
+        onScrollFinish () {
+            const page = this.findMostTopPage();
+            this.changeHash((page && page.id) || "");
+        },
+        changeHash (newHash) {
+            if (!newHash.startsWith("#")) {
+                newHash = `#${newHash}`;
+            }
+            if (newHash === "#") {
+                newHash = "";
+            }
+            if (this.$route.hash !== newHash) {
+                this.$router.replace(newHash);
+            }
+        },
+        findMostTopPage () {
+            let mostTopPage = null;
+            let leastDistanceToTop = Infinity;
+            for (const page of this.$el.getElementsByClassName("m-page")) {
+                const rect = page.getBoundingClientRect();
+                const distanceToTop = Math.abs(rect.y);
+                if (distanceToTop < leastDistanceToTop) {
+                    mostTopPage = page;
+                    leastDistanceToTop = distanceToTop;
+                }
+            }
+            return mostTopPage;
         },
     },
 };
 </script>
 
 <style scoped>
-::-webkit-scrollbar {
-  display: none;
-}
-
-.m-no-decoration {
-  text-decoration: none;
-}
-
-.m-small-caps {
-  font-variant: small-caps;
-}
-
-.m-clickable {
-  cursor: pointer;
-}
-
-.m-clickable:hover {
-  opacity: 0.7;
-}
-
-.m-flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.m-flex-spacer {
-  flex: 1 1 0;
-}
-
 .m-container {
   position: fixed;
   overflow-y: scroll;
