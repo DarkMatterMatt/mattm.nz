@@ -81,6 +81,7 @@ export default {
 
         let scrollFinishedTimeout;
         this.$el.addEventListener("scroll", () => {
+            this.onScroll();
             clearTimeout(scrollFinishedTimeout);
             scrollFinishedTimeout = setTimeout(() => this.onScrollFinish(), 100);
         });
@@ -91,14 +92,14 @@ export default {
                 const anchor = document.querySelector(this.$route.hash);
                 if (anchor) {
                     anchor.scrollIntoView();
-                    this.hideTooltips = true;
-                    this.$nextTick(() => {
-                        this.hideTooltips = false;
-                    });
                 }
             }
         },
+        onScroll () {
+            this.hideTooltips = true;
+        },
         onScrollFinish () {
+            this.hideTooltips = false;
             const page = this.findMostTopPage();
             this.changeHash((page && page.id) || "");
         },
