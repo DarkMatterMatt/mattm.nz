@@ -8,7 +8,7 @@
       <div class="m-subtitle-container">
         <v-tooltip bottom :disabled="hideTooltips">
           <template #activator="{ on }">
-            <a :href="github" class="m-no-decoration" v-on="on">
+            <a :href="links.github" class="m-no-decoration" v-on="on">
               <v-icon v-ripple class="m-clickable text-h3"> mdi-github </v-icon>
             </a>
           </template>
@@ -16,7 +16,7 @@
         </v-tooltip>
         <v-tooltip bottom :disabled="hideTooltips">
           <template #activator="{ on }">
-            <NuxtLink to="/blog" class="m-no-decoration">
+            <NuxtLink :to="links.blog" class="m-no-decoration">
               <v-icon v-ripple class="m-clickable text-h3 mx-4" v-on="on">
                 mdi-pencil-box-multiple
               </v-icon>
@@ -26,7 +26,7 @@
         </v-tooltip>
         <v-tooltip bottom :disabled="hideTooltips">
           <template #activator="{ on }">
-            <a :href="linkedin" class="m-no-decoration" v-on="on">
+            <a :href="links.linkedin" class="m-no-decoration" v-on="on">
               <v-icon v-ripple class="m-clickable text-h3">
                 mdi-linkedin
               </v-icon>
@@ -40,7 +40,7 @@
     <div class="m-between-pages m-flex-column text-center">
       <v-tooltip top :disabled="hideTooltips">
         <template #activator="{ on }">
-          <NuxtLink :to="about" class="m-no-decoration" @click.native="scrollToHash">
+          <NuxtLink :to="links.about" replace class="m-no-decoration" @click.native="scrollToHash">
             <v-icon v-ripple class="m-clickable text-h3 mx-4" v-on="on">
               mdi-menu-down
             </v-icon>
@@ -65,10 +65,12 @@ export default {
     name: "Index",
     data () {
         return {
-            about: "#about",
-            blog: "/blog",
-            github: "//github.com/DarkMatterMatt",
-            linkedin: "//linkedin.com/in/matt-moran-a0b74318b/",
+            links: {
+                about: "#about",
+                blog: "/blog",
+                github: "//github.com/DarkMatterMatt",
+                linkedin: "//linkedin.com/in/matt-moran-a0b74318b/",
+            },
             hideTooltips: false,
         };
     },
