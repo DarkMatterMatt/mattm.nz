@@ -6,24 +6,50 @@
         Matt Moran
       </div>
       <div class="m-subtitle-container">
-        <v-icon v-ripple class="m-clickable text-h3">
-          mdi-github
-        </v-icon>
-        <v-icon v-ripple class="m-clickable text-h3 mx-4">
-          mdi-pencil-box-multiple
-        </v-icon>
-        <v-icon v-ripple class="m-clickable text-h3">
-          mdi-linkedin
-        </v-icon>
+        <v-tooltip bottom>
+          <template #activator="{ on }">
+            <a :href="github" class="m-no-decoration" v-on="on">
+              <v-icon v-ripple class="m-clickable text-h3"> mdi-github </v-icon>
+            </a>
+          </template>
+          <span>GitHub</span>
+        </v-tooltip>
+        <v-tooltip bottom>
+          <template #activator="{ on }">
+            <NuxtLink to="/blog" class="m-no-decoration">
+              <v-icon v-ripple class="m-clickable text-h3 mx-4" v-on="on">
+                mdi-pencil-box-multiple
+              </v-icon>
+            </NuxtLink>
+          </template>
+          <span>Blog</span>
+        </v-tooltip>
+        <v-tooltip bottom>
+          <template #activator="{ on }">
+            <a :href="linkedin" class="m-no-decoration" v-on="on">
+              <v-icon v-ripple class="m-clickable text-h3">
+                mdi-linkedin
+              </v-icon>
+            </a>
+          </template>
+          <span>LinkedIn</span>
+        </v-tooltip>
       </div>
       <div class="m-flex-spacer" />
     </div>
     <div class="m-between-pages m-flex-column text-center">
-      <v-icon class="text-h3 m-clickable">
-        mdi-menu-down
-      </v-icon>
+      <v-tooltip top>
+        <template #activator="{ on }">
+          <NuxtLink :to="about" class="m-no-decoration" @click.native="scrollToHash">
+            <v-icon v-ripple class="m-clickable text-h3 mx-4" v-on="on">
+              mdi-menu-down
+            </v-icon>
+          </NuxtLink>
+        </template>
+        <span>About</span>
+      </v-tooltip>
     </div>
-    <div class="m-page m-flex-column">
+    <div id="about" class="m-page m-flex-column">
       <div class="m-flex-spacer" style="max-height: 20vw" />
       <div class="m-small-caps text-h2 font-weight-regular mb-6 text-center">
         About Me
@@ -36,9 +62,31 @@
 
 <script>
 export default {
+    name: "Index",
+    data () {
+        return {
+            about: "#about",
+            blog: "/blog",
+            github: "//github.com/DarkMatterMatt",
+            linkedin: "//linkedin.com/in/matt-moran-a0b74318b/",
+        };
+    },
     head: {
         title: "Matt Moran",
         titleTemplate: null,
+    },
+    mounted () {
+        this.scrollToHash();
+    },
+    methods: {
+        scrollToHash () {
+            if (this.$route.hash) {
+                const anchor = document.querySelector(this.$route.hash);
+                if (anchor) {
+                    anchor.scrollIntoView();
+                }
+            }
+        },
     },
 };
 </script>
@@ -46,6 +94,10 @@ export default {
 <style scoped>
 ::-webkit-scrollbar {
   display: none;
+}
+
+.m-no-decoration {
+  text-decoration: none;
 }
 
 .m-small-caps {
