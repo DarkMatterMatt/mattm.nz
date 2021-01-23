@@ -54,7 +54,26 @@
       <div class="m-small-caps text-h2 font-weight-regular mb-6 text-center">
         About Me
       </div>
-      <div />
+      <v-list class="m-list" :width="this.$vuetify.breakpoint.mobile ? '90%' : '600'">
+        <v-list-group
+          v-for="(item, i) of about.items"
+          :key="i"
+          v-model="item.active"
+          :prepend-icon="item.icon"
+          class="white--text"
+        >
+          <template #activator>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </template>
+          <v-list dense>
+            <v-list-item v-for="text of item.subItems" :key="text">
+              <v-list-item-content v-text="text" />
+            </v-list-item>
+          </v-list>
+        </v-list-group>
+      </v-list>
       <div class="m-flex-spacer" />
     </div>
   </div>
@@ -72,6 +91,32 @@ export default {
                 linkedin: "//linkedin.com/in/matt-moran-a0b74318b/",
             },
             hideTooltips: false,
+            about: {
+                items: [{
+                    active: true,
+                    title: "Summary",
+                    icon: "mdi-account",
+                    subItems: [
+                        "Fields of interest: cyber security & software development",
+                    ],
+                }, {
+                    title: "Work Experience",
+                    icon: "mdi-briefcase",
+                    subItems: [
+                        "Summer 2019/2020. Security Intern at Aura Information Security",
+                        "Summer 2020/2021. Security Intern at Aura Information Security",
+                    ],
+                }, {
+                    title: "Education",
+                    icon: "mdi-school",
+                    subItems: [
+                        "Currently studying Software Engineering at the University of Auckland",
+                        "Available to begin graduate roles from Jan 2023",
+                        "A+ GPA (2019 & 2020 Dean's Honours list)",
+                        "2019 Dean's Leadership Programme",
+                    ],
+                }],
+            },
         };
     },
     head: {
@@ -160,5 +205,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#about {
+  align-items: center;
+}
+
+.m-list {
+  background-color: transparent;
 }
 </style>
