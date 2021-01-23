@@ -60,7 +60,6 @@
           :key="i"
           v-model="item.active"
           :prepend-icon="item.icon"
-          class="white--text"
         >
           <template #activator>
             <v-list-item-content>
@@ -179,6 +178,12 @@ export default {
 </script>
 
 <style scoped>
+/* override theme colour for this page only, duplicate class is required to increase CSS specificity */
+.primary--text.primary--text {
+  color: white !important;
+  caret-color: white !important;
+}
+
 .m-container {
   position: fixed;
   overflow-y: scroll;
