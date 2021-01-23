@@ -6,17 +6,17 @@
         Matt Moran
       </div>
       <div class="m-subtitle-container">
-        <v-tooltip bottom :disabled="hideTooltips">
+        <v-tooltip bottom :disabled="hideTooltips" attach="#link-github">
           <template #activator="{ on }">
-            <a :href="links.github" class="m-no-decoration" v-on="on">
+            <a :href="links.github" id="link-github" class="m-no-decoration" v-on="on">
               <v-icon v-ripple class="m-clickable text-h3"> mdi-github </v-icon>
             </a>
           </template>
           <span>GitHub</span>
         </v-tooltip>
-        <v-tooltip bottom :disabled="hideTooltips">
+        <v-tooltip bottom :disabled="hideTooltips" attach="#link-blog">
           <template #activator="{ on }">
-            <NuxtLink :to="links.blog" class="m-no-decoration">
+            <NuxtLink :to="links.blog" id="link-blog" class="m-no-decoration">
               <v-icon v-ripple class="m-clickable text-h3 mx-4" v-on="on">
                 mdi-pencil-box-multiple
               </v-icon>
@@ -24,9 +24,9 @@
           </template>
           <span>Blog</span>
         </v-tooltip>
-        <v-tooltip bottom :disabled="hideTooltips">
+        <v-tooltip bottom :disabled="hideTooltips" attach="#link-linkedin">
           <template #activator="{ on }">
-            <a :href="links.linkedin" class="m-no-decoration" v-on="on">
+            <a :href="links.linkedin" id="link-linkedin" class="m-no-decoration" v-on="on">
               <v-icon v-ripple class="m-clickable text-h3">
                 mdi-linkedin
               </v-icon>
@@ -38,9 +38,9 @@
       <div class="m-flex-spacer" />
     </div>
     <div class="m-between-pages m-flex-column text-center">
-      <v-tooltip top :disabled="hideTooltips">
+      <v-tooltip top :disabled="hideTooltips" attach="#link-about">
         <template #activator="{ on }">
-          <NuxtLink :to="links.about" replace class="m-no-decoration" @click.native="scrollToHash">
+          <NuxtLink :to="links.about" replace id="link-about" class="m-no-decoration" @click.native="scrollToHash">
             <v-icon v-ripple class="m-clickable text-h3 mx-4" v-on="on">
               mdi-menu-down
             </v-icon>
