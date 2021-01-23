@@ -8,7 +8,7 @@
       <div class="m-subtitle-container">
         <v-tooltip bottom :disabled="hideTooltips" attach="#link-github">
           <template #activator="{ on }">
-            <a :href="links.github" id="link-github" class="m-no-decoration" v-on="on">
+            <a id="link-github" :href="links.github" class="m-no-decoration" v-on="on">
               <v-icon v-ripple class="m-clickable text-h3"> mdi-github </v-icon>
             </a>
           </template>
@@ -16,7 +16,7 @@
         </v-tooltip>
         <v-tooltip bottom :disabled="hideTooltips" attach="#link-blog">
           <template #activator="{ on }">
-            <NuxtLink :to="links.blog" id="link-blog" class="m-no-decoration">
+            <NuxtLink id="link-blog" :to="links.blog" class="m-no-decoration">
               <v-icon v-ripple class="m-clickable text-h3 mx-4" v-on="on">
                 mdi-pencil-box-multiple
               </v-icon>
@@ -26,7 +26,7 @@
         </v-tooltip>
         <v-tooltip bottom :disabled="hideTooltips" attach="#link-linkedin">
           <template #activator="{ on }">
-            <a :href="links.linkedin" id="link-linkedin" class="m-no-decoration" v-on="on">
+            <a id="link-linkedin" :href="links.linkedin" class="m-no-decoration" v-on="on">
               <v-icon v-ripple class="m-clickable text-h3">
                 mdi-linkedin
               </v-icon>
@@ -40,7 +40,7 @@
     <div class="m-between-pages m-flex-column text-center">
       <v-tooltip top :disabled="hideTooltips" attach="#link-about">
         <template #activator="{ on }">
-          <NuxtLink :to="links.about" replace id="link-about" class="m-no-decoration" @click.native="scrollToHash">
+          <NuxtLink id="link-about" :to="links.about" replace class="m-no-decoration" @click.native="scrollToHash">
             <v-icon v-ripple class="m-clickable text-h3 mx-4" v-on="on">
               mdi-menu-down
             </v-icon>
@@ -102,8 +102,8 @@ export default {
                     title: "Work Experience",
                     icon: "mdi-briefcase",
                     subItems: [
-                        "Summer 2019/2020. Security Intern at Aura Information Security",
                         "Summer 2020/2021. Security Intern at Aura Information Security",
+                        "Summer 2019/2020. Security Intern at Aura Information Security",
                     ],
                 }, {
                     title: "Education",
@@ -112,7 +112,7 @@ export default {
                         "Currently studying Software Engineering at the University of Auckland",
                         "Available to begin graduate roles from Jan 2023",
                         "A+ GPA (2019 & 2020 Dean's Honours list)",
-                        "2019 Dean's Leadership Programme",
+                        "2020 Dean's Leadership Programme",
                     ],
                 }],
             },
@@ -120,7 +120,7 @@ export default {
     },
     head: {
         title: "Matt Moran",
-        titleTemplate: null,
+        titleTemplate: "%s",
     },
     mounted () {
         this.scrollToHash();
