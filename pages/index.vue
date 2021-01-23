@@ -81,6 +81,7 @@
 <script>
 export default {
     name: "Index",
+    layout: "minimal",
     data () {
         return {
             links: {
