@@ -1,6 +1,10 @@
 <template>
-  <article>
+  <article class="m-flex-column" style="height: 100%">
     <nuxt-content :document="article" />
+    <div class="m-flex-spacer" />
+    <div class="text-body-2 mt-1">
+      Last updated: {{ article.updatedAt }}
+    </div>
   </article>
 </template>
 
@@ -11,13 +15,13 @@ export default {
 
         return { article };
     },
-    head() {
-      return {
-        title: this.article.title,
-      }
+    head () {
+        return {
+            title: this.article.title,
+        };
     },
     mounted () {
-      this.$store.commit("layout/updateTitle", "Blog");
+        this.$store.commit("layout/updateTitle", "Blog");
     },
 };
 </script>

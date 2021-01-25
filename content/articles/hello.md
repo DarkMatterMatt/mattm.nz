@@ -1,3 +1,8 @@
+---
+title: Hi there!
+description: Testing blog post
+---
+
 # Hi there!
 
 ~~Testing~~ **blog** `post`, _using_ [Markdown](https://www.markdownguide.org/)

@@ -40,7 +40,7 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-container style="height: 100%">
         <nuxt />
       </v-container>
     </v-main>

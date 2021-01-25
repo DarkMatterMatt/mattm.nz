@@ -32,7 +32,7 @@ export default {
         title: "Blog",
     },
     mounted () {
-      this.$store.commit("layout/updateTitle", "Blog");
+        this.$store.commit("layout/updateTitle", "Blog");
     },
 };
 </script>
