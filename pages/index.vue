@@ -117,6 +117,7 @@ export default {
                     ],
                 }],
             },
+            scrollFinishedTimeout: null,
         };
     },
     head: {
@@ -125,13 +126,10 @@ export default {
     },
     mounted () {
         this.scrollToHash();
-
-        let scrollFinishedTimeout;
-        this.$el.addEventListener("scroll", () => {
-            this.onScroll();
-            clearTimeout(scrollFinishedTimeout);
-            scrollFinishedTimeout = setTimeout(() => this.onScrollFinish(), 100);
-        });
+        this.$el.addEventListener("scroll", this.onScroll);
+    },
+    unmounted () {
+        this.$el.removeEventListener("scroll", this.onScroll);
     },
     methods: {
         scrollToHash () {
@@ -143,6 +141,9 @@ export default {
             }
         },
         onScroll () {
+            clearTimeout(this.scrollFinishedTimeout);
+            this.scrollFinishedTimeout = setTimeout(() => this.onScrollFinish(), 50);
+
             this.hideTooltips = true;
         },
         onScrollFinish () {
@@ -179,12 +180,6 @@ export default {
 </script>
 
 <style scoped>
-/* override theme colour for this page only, duplicate class is required to increase CSS specificity */
-.primary--text.primary--text {
-  color: white !important;
-  caret-color: white !important;
-}
-
 .m-container {
   position: fixed;
   overflow-y: scroll;
