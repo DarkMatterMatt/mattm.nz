@@ -1,3 +1,9 @@
+<template>
+  <article>
+    <nuxt-content :document="article" />
+  </article>
+</template>
+
 <script>
 export default {
     async asyncData ({ $content, params }) {
@@ -5,10 +11,10 @@ export default {
 
         return { article };
     },
+    head() {
+      return {
+        title: this.article.title,
+      }
+    },
 };
 </script>
-<template>
-  <article>
-    <nuxt-content :document="article" />
-  </article>
-</template>
