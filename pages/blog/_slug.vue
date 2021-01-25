@@ -16,5 +16,8 @@ export default {
         title: this.article.title,
       }
     },
+    mounted () {
+      this.$store.commit("layout/updateTitle", "Blog");
+    },
 };
 </script>

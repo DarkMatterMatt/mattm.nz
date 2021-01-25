@@ -6,7 +6,7 @@
       :to="{ name: 'blog-slug', params: { slug: article.slug } }"
       class="m-no-decoration"
     >
-      <v-card class="my-6">
+      <v-card class="mb-3">
         <v-img v-if="article.img" :src="article.img" height="20vh" />
         <v-card-title v-text="article.title" />
         <v-card-text v-text="article.description" />
@@ -30,6 +30,9 @@ export default {
     },
     head: {
         title: "Blog",
+    },
+    mounted () {
+      this.$store.commit("layout/updateTitle", "Blog");
     },
 };
 </script>
