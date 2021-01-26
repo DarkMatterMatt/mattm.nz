@@ -1,6 +1,6 @@
 <template>
   <div class="m-container">
-    <home class="m-page" data-page="home" :hide-tooltips="hideTooltips" />
+    <home class="m-page" data-page="home" style="padding-top: 10%" :hide-tooltips="hideTooltips" />
     <div class="m-between-pages m-flex-column text-center">
       <v-tooltip top :disabled="hideTooltips" attach="#link-about">
         <template #activator="{ on }">
@@ -13,7 +13,7 @@
         <span>About</span>
       </v-tooltip>
     </div>
-    <about class="m-page" data-page="about" :hide-tooltips="hideTooltips" />
+    <about class="m-page" data-page="about" style="padding-bottom: 10%" :hide-tooltips="hideTooltips" />
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
             scrollFinishedTimeout: null,
             pageURLs: {
                 home: "/",
-                about: "/about",
+                about: "/about/",
             },
         };
     },
