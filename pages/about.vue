@@ -1,10 +1,10 @@
 <template>
-  <home-about initial-page="home" />
+  <home-about initial-page="about" />
 </template>
 
 <script>
 export default {
-    name: "Index",
+    name: "About",
     layout: "minimal",
     head: {
         title: "Matt Moran",

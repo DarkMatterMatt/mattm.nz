@@ -54,7 +54,7 @@ export default {
             menu: [
                 { name: "Blog", icon: "mdi-pencil-box-multiple", link: "/blog" },
                 { name: "Projects", icon: "mdi-puzzle", link: "/projects" },
-                { name: "About", icon: "mdi-account", link: "/#about" },
+                { name: "About", icon: "mdi-account", link: "/about" },
             ],
             drawer: false,
         };
