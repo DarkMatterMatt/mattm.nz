@@ -122,6 +122,7 @@ const LINE_ORDER = [
     "pointer-events",
 
     /* animation */
+    "animation",
     "transition",
     "will-change",
 
@@ -219,6 +220,9 @@ function processFile (fname) {
         output = processLines(lines).join("\n");
     }
 
+    if (text === output) {
+        return;
+    }
     fs.renameSync(fname, `${fname}.bak`);
     fs.writeFileSync(fname, output);
 }
