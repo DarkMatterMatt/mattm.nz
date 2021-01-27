@@ -1,3 +1,9 @@
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .m-clickable {
     cursor: pointer;
 }
@@ -22,4 +28,13 @@
 
 .m-flex-spacer {
     flex: 1 1 0;
+}
+
+.m-rotate {
+    --rotate: 0; /* 0.5 = 180deg rotation, 1 = 360deg rotation */
+    animation: rotate 1s linear calc(var(--rotate) * -1s) infinite paused;
+}
+
+.m-reverse {
+    animation-direction: reverse;
 }
