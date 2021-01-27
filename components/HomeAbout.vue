@@ -1,19 +1,15 @@
 <template>
-  <div class="m-container" v-scroll.self="onScroll">
-    <home class="m-page" data-page="home" style="padding-top: 10%" :hide-tooltips="hideTooltips" />
-    <div class="m-between-pages m-flex-column text-center">
-      <v-tooltip top :disabled="hideTooltips" attach="#link-about">
-        <template #activator="{ on }">
-          <a id="link-about" class="m-no-decoration" v-on="on" @click.prevent="onPageJumpClick('home', 'about')">
-            <v-icon v-ripple class="m-clickable m-rotate m-reverse text-h3 mx-4">
-              mdi-menu-down
-            </v-icon>
-          </a>
-        </template>
-        <span>About</span>
-      </v-tooltip>
-    </div>
-    <about class="m-page" data-page="about" style="padding-bottom: 10%" :hide-tooltips="hideTooltips" />
+  <div v-scroll.self="onScroll" class="m-container">
+    <home class="m-page" data-page="Home" style="padding-top: 10%" :hide-tooltips="hideTooltips" />
+    <between-pages
+      class="m-between-pages"
+      :current-page="currentPage"
+      after-page="About"
+      before-page="Home"
+      :hide-tooltips="hideTooltips"
+      :scroll-to-page="scrollToPage"
+    />
+    <about class="m-page" data-page="About" style="padding-bottom: 10%" :hide-tooltips="hideTooltips" />
   </div>
 </template>
 
@@ -28,9 +24,9 @@ export default {
             hideTooltips: false,
             currentPage: "home",
             scrollFinishedTimeout: null,
-            pageURLs: {
-                home: "/",
-                about: "/about/",
+            pages: {
+                Home: { url: "/" },
+                About: { url: "/about/" },
             },
         };
     },
@@ -40,9 +36,6 @@ export default {
         }
     },
     methods: {
-        onPageJumpClick (page1, page2) {
-            this.scrollToPage(this.currentPage !== page1 ? page1 : page2);
-        },
         scrollToPage (page) {
             const anchor = document.querySelector(`*[data-page='${page}'`);
             if (anchor) {
@@ -54,6 +47,7 @@ export default {
             clearTimeout(this.scrollFinishedTimeout);
             this.scrollFinishedTimeout = setTimeout(() => this.onScrollFinish(), 50);
 
+            // TODO: handle more than two pages, handle more than one .m-rotate
             const scrollPercent = this.$el.scrollTop / (this.$el.scrollHeight - this.$el.clientHeight);
             this.$el.querySelector(".m-rotate").style.setProperty("--rotate", scrollPercent * 1.5);
 
@@ -66,14 +60,14 @@ export default {
             this.updateURL(this.currentPage);
         },
         updateURL (page) {
-            if (!page || !Object.prototype.hasOwnProperty.call(this.pageURLs, page)) {
+            if (!page || !Object.prototype.hasOwnProperty.call(this.pages, page)) {
                 return;
             }
             if (!window.history || !window.history.replaceState) {
                 // do nothing on ancient browsers :(
                 return;
             }
-            const path = this.pageURLs[page];
+            const path = this.pages[page].url;
             if (window.location.pathname !== path) {
                 window.history.replaceState({}, page, path);
             }

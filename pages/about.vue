@@ -1,5 +1,5 @@
 <template>
-  <home-about initial-page="about" />
+  <home-about initial-page="About" />
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <home-about initial-page="home" />
+  <home-about initial-page="Home" />
 </template>
 
 <script>
