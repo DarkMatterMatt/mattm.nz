@@ -2,8 +2,8 @@
   <div>
     <NuxtLink
       v-for="article of articles"
-      :key="article.slug"
-      :to="{ name: 'blog-slug', params: { slug: article.slug } }"
+      :key="article.dir"
+      :to="article.dir"
       class="m-no-decoration"
     >
       <v-card class="mb-3">
@@ -19,8 +19,8 @@
 export default {
     name: "Blog",
     async asyncData ({ $content, params }) {
-        const articles = await $content("articles", params.slug)
-            .only(["title", "description", "img", "slug", "author"])
+        const articles = await $content("blog", { deep: true })
+            .only(["title", "description", "img", "slug", "author", "dir"])
             .sortBy("createdAt", "asc")
             .fetch();
 

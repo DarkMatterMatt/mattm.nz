@@ -1,9 +1,9 @@
 <template>
   <article class="m-flex-column" style="height: 100%">
-    <nuxt-content :document="article" />
+    <nuxt-content :document="blog" />
     <div class="m-flex-spacer" />
     <div class="text-body-2 mt-1">
-      Last updated: {{ article.updatedAt }}
+      Last updated: {{ blog.updatedAt }}
     </div>
   </article>
 </template>
@@ -11,13 +11,15 @@
 <script>
 export default {
     async asyncData ({ $content, params }) {
-        const article = await $content("articles", params.slug).fetch();
+      const [blog] = await $content("blog", { deep: true })
+        .where({ dir: `/blog/${params.slug}` })
+        .fetch();
 
-        return { article };
+        return { blog };
     },
     head () {
         return {
-            title: this.article.title,
+            title: this.blog.title,
         };
     },
     mounted () {
