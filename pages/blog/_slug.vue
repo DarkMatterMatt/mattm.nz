@@ -11,9 +11,9 @@
 <script>
 export default {
     async asyncData ({ $content, params }) {
-      const [blog] = await $content("blog", { deep: true })
-        .where({ dir: `/blog/${params.slug}` })
-        .fetch();
+        const [blog] = await $content("blog", { deep: true })
+            .where({ dir: `/blog/${params.slug}` })
+            .fetch();
 
         return { blog };
     },

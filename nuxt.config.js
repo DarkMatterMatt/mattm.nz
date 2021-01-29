@@ -75,9 +75,24 @@ export default {
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
+        extend (config) {
+            config.module.rules.push({
+                test: /\.md$/i,
+                loader: "ignore-loader",
+            });
+        },
     },
 
     server: {
         host: "0.0.0.0",
+    },
+
+    hooks: {
+        "content:file:beforeParse": (file) => {
+            if (file.extension === ".md") {
+                // convert self-closing tags to not self-closing tags
+                file.data = file.data.replace(/<\s*([^\s>]+)([^>]*)\/\s*>/g, "<$1$2></$1>");
+            }
+        },
     },
 };
