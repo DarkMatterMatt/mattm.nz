@@ -33,13 +33,15 @@ Url {
 
 The server which loads the embed content acts the same way as a normal web browser and decodes the `%2e` before loading the embed from `https://discord.gg.k.vu`. The desktop and web clients incorrectly parse the URL and display it as `https://discord.gg/%2ek.vu`, suggesting that the URL came from `discord.gg`.
 
-<blog-img src="discord_1.png" />
-<blog-caption>It’s from discord.gg, right?</blog-caption>
+<blog-img src="discord_1.png">
+  It’s from discord.gg, right?
+</blog-img>
 
 This vulnerability can be used for much more realistic phishing attacks as the blue text that the user is clicking is different to the website that it links to. For example, clicking “Join the Official Fortnite Discord Server!” in the image below sends the victim to a cloned Discord login page. The user has just seen the `discord.gg` URL so they are unlikely to be suspicious of the login page.
 
-<blog-img src="discord_2.png" />
-<blog-caption>Phishing potential: clicking on the link in the embed will take you to my domain</blog-caption>
+<blog-img src="discord_2.png">
+  Phishing potential: clicking on the link in the embed will take you to my domain
+</blog-img>
 
 <blog-hr />
 

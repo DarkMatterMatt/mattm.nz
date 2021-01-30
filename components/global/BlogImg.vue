@@ -1,11 +1,17 @@
 <template>
-  <v-img
-    :src="computedSrc"
-    :alt="computedAlt"
-  />
+  <div>
+    <img
+      :src="computedSrc"
+      :alt="computedAlt"
+    >
+    <div v-if="this.$slots.default" class="text-caption text-center mb-2">
+      <slot />
+    </div>
+  </div>
 </template>
 
 <script>
+/* eslint-disable prefer-destructuring */
 export default {
     props: {
         dir: { type: String, default: "" },
@@ -14,16 +20,29 @@ export default {
     },
     computed: {
         computedSrc () {
-            try {
-                if (!this.dir && !this.$parent.$props.document.dir) {
-                  throw new Error("Prop `dir` must be set if not in blog/post/index.md");
+            let dir = this.dir;
+            if (!dir) {
+                // try fetch dir from parent info
+                try {
+                    dir = this.$parent.$props.document.dir;
                 }
-                const dir = this.dir || this.$parent.$props.document.dir;
-                return require(`~/content${dir}/images/${this.src}`);
+                catch (err) {}
             }
-            catch (err) {
+            if (!dir) {
+                // backup, try fetch dir from ssrContext
+                try {
+                    dir = this.$ssrContext.url;
+                }
+                catch (err) {}
+            }
+
+            if (!dir) {
+                // throw new Error("Prop `dir` must be set if not in blog/post/index.md");
                 return null;
             }
+            // trim slashes cause Node can't handle double slashes in file names?
+            dir = dir.replace(/^\/+|\/+$/g, "");
+            return require(`~/content/${dir}/images/${this.src}`);
         },
         computedAlt () {
             return this.alt || this.src;
@@ -31,3 +50,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+img {
+    max-width: 100%;
+}
+</style>
