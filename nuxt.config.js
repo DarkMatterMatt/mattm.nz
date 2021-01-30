@@ -91,7 +91,7 @@ export default {
         "content:file:beforeParse": (file) => {
             if (file.extension === ".md") {
                 // convert self-closing tags to not self-closing tags
-                file.data = file.data.replace(/<\s*([^\s>]+)([^>]*)\/\s*>/g, "<$1$2></$1>");
+                file.data = file.data.replace(/<\s*([^\s>]+)([^>]*)\/>/g, "<$1$2></$1>");
             }
         },
     },
