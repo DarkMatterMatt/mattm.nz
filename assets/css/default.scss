@@ -38,3 +38,9 @@
 .m-reverse {
     animation-direction: reverse;
 }
+
+.m-reading-width {
+    /* Medium uses 680px, Jekyll uses 800px */
+    max-width: 740px; 
+    margin: 0 auto;
+}

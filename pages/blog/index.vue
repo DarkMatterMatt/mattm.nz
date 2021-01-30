@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-reading-width">
     <NuxtLink
       v-for="article of articles"
       :key="article.dir"

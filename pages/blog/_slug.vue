@@ -1,5 +1,5 @@
 <template>
-  <article class="m-flex-column" style="height: 100%">
+  <article class="m-flex-column m-reading-width" style="height: 100%">
     <nuxt-content :document="blog" />
     <div class="m-flex-spacer" />
     <div class="text-body-2 mt-1">
