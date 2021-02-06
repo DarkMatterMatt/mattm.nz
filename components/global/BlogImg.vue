@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="my-8">
     <img
       :src="computedSrc"
       :alt="computedAlt"
