@@ -35,6 +35,13 @@ export default {
                 }
                 catch (err) {}
             }
+            if (!dir) {
+                // backup, try fetch dir from $parent.blog
+                try {
+                    dir = this.$parent.blog.dir;
+                }
+                catch (err) {}
+            }
 
             if (!dir) {
                 // throw new Error("Prop `dir` must be set if not in blog/post/index.md");
