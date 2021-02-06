@@ -59,6 +59,9 @@ export default {
         customVariables: ["~/assets/variables.scss"],
         theme: {
             dark: true,
+            options: {
+                customProperties: true
+            },
             themes: {
                 dark: {
                     primary: "#fff",
