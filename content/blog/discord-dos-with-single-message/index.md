@@ -1,6 +1,7 @@
 ---
 title: Discord DoS with a single message
 description: Crafted message causes causes denial of service on a Discord channel
+updatedAt: 2020-02-14T00:00:01+13:00
 ---
 
 **TLDR:** I discovered that sending the message `http://%zz@example.com` from the mobile app would result in a permanent denial of service of a Discord channel on the web and desktop clients.

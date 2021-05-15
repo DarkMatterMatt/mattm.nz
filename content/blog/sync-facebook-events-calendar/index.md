@@ -1,6 +1,7 @@
 ---
 title: Sync Facebook events with your calendar
 description: See how to add your dynamic Facebook events calendar to your personal calendar
+updatedAt: 2021-05-15T23:00:00+12:00
 ---
 
 # Sync Facebook events with your calendar

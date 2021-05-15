@@ -1,6 +1,7 @@
 ---
 title: Discord embed spoofing
 description: Vulnerability in Discord client URL parsing makes custom embed content appear to come from a legitimate domain
+updatedAt: 2020-03-02T00:00:01+13:00
 ---
 
 **TLDR:** I found a vulnerability in the way the Discord clients parse URLs which makes my custom embed content appear to come from a legitimate domain.
