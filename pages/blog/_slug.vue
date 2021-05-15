@@ -1,11 +1,18 @@
 <template>
-  <article class="m-flex-column m-reading-width" style="height: 100%">
+  <div class="m-flex-column m-reading-width" style="height: 100%">
+    <h1 v-text="blog.title" />
+    <div v-if="blog.description">
+      <p v-text="blog.description" />
+      <hr class="mb-4">
+    </div>
+
     <nuxt-content :document="blog" />
+
     <div class="m-flex-spacer" />
     <div class="text-body-2 mt-1">
       Last updated: {{ blog.updatedAt | formatDate }}
     </div>
-  </article>
+  </div>
 </template>
 
 <script>

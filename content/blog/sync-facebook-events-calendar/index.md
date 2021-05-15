@@ -4,11 +4,7 @@ description: See how to add your dynamic Facebook events calendar to your person
 updatedAt: 2021-05-15T23:00:00+12:00
 ---
 
-# Sync Facebook events with your calendar
-
-See how to add your dynamic Facebook events calendar to your personal calendar.
-
-### Find your dynamic Facebook events calendar URL
+## Find your dynamic Facebook events calendar URL
 
 <blog-img src="facebook-events-calendar.png" />
 
@@ -18,7 +14,7 @@ See how to add your dynamic Facebook events calendar to your personal calendar.
 
 <br>
 
-### Add to Google Calendar
+## Add to Google Calendar
 
 <blog-img src="google-calendar-add.png" />
 
@@ -29,7 +25,7 @@ See how to add your dynamic Facebook events calendar to your personal calendar.
 
 <blog-img src="google-calendar-url.png" />
 
-### Add to Outlook Calendar
+## Add to Outlook Calendar
 
 <blog-img src="outlook-calendar-add.png" />
 
