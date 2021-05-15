@@ -1,3 +1,3 @@
 <template>
-  <div class="mt-8">
+  <div class="mt-8" />
 </template>
