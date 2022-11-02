@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+  # Enable running the workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   gh-pages:
     runs-on: ${{ matrix.os }}
@@ -15,7 +18,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [14]
+        node: [16]
 
     steps:
       - name: Checkout 🛎
@@ -48,10 +51,10 @@ jobs:
       - name: Run tests 🧪
         run: npm run test
 
-      - name: Generate
+      - name: Generate ⚡
         run: npm run generate
 
-      - name: Deploy
+      - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
