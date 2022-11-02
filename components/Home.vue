@@ -8,7 +8,7 @@
       <v-tooltip bottom :disabled="hideTooltips" attach="#link-github">
         <template #activator="{ on }">
           <a id="link-github" :href="links.github" class="m-no-decoration" v-on="on">
-            <v-icon v-ripple class="m-clickable text-h3"> mdi-github </v-icon>
+            <v-icon v-ripple class="m-clickable text-h3 mx-2"> mdi-github </v-icon>
           </a>
         </template>
         <span>GitHub</span>
@@ -16,17 +16,27 @@
       <v-tooltip bottom :disabled="hideTooltips" attach="#link-blog">
         <template #activator="{ on }">
           <NuxtLink id="link-blog" :to="links.blog" class="m-no-decoration">
-            <v-icon v-ripple class="m-clickable text-h3 mx-4" v-on="on">
+            <v-icon v-ripple class="m-clickable text-h3 mx-2" v-on="on">
               mdi-pencil-box-multiple
             </v-icon>
           </NuxtLink>
         </template>
         <span>Blog</span>
       </v-tooltip>
+      <v-tooltip bottom :disabled="hideTooltips" attach="#link-projects">
+        <template #activator="{ on }">
+          <NuxtLink id="link-projects" :to="links.projects" class="m-no-decoration">
+            <v-icon v-ripple class="m-clickable text-h3 mx-2" v-on="on">
+              mdi-puzzle
+            </v-icon>
+          </NuxtLink>
+        </template>
+        <span>Projects</span>
+      </v-tooltip>
       <v-tooltip bottom :disabled="hideTooltips" attach="#link-linkedin">
         <template #activator="{ on }">
           <a id="link-linkedin" :href="links.linkedin" class="m-no-decoration" v-on="on">
-            <v-icon v-ripple class="m-clickable text-h3">
+            <v-icon v-ripple class="m-clickable text-h3 mx-2">
               mdi-linkedin
             </v-icon>
           </a>
@@ -49,8 +59,9 @@ export default {
             links: {
                 about: "#about",
                 blog: "/blog",
+                projects: "/projects",
                 github: "//github.com/DarkMatterMatt",
-                linkedin: "//linkedin.com/in/matt-moran-a0b74318b/",
+                linkedin: "//linkedin.com/in/mattmoran2000/",
             },
         };
     },
