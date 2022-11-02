@@ -16,6 +16,13 @@
 </template>
 
 <script>
+const resolveImage = data => ({
+    ...data,
+    img: (!data.img || data.img.includes("//"))
+        ? data.img
+        : require(`~/content/${data.dir.replace(/^\/+|\/+$/g, "")}/images/${data.img}`),
+});
+
 export default {
     name: "Blog",
     async asyncData ({ $content }) {
@@ -25,7 +32,7 @@ export default {
             .fetch();
 
         return {
-            articles,
+            articles: articles.map(resolveImage),
         };
     },
     head: {
