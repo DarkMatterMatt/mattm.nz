@@ -28,38 +28,15 @@
 </template>
 
 <script>
+import items from "~/content/about/data.js";
+
 export default {
     name: "About",
     props: {
         hideTooltips: Boolean,
     },
     data () {
-        return {
-            items: [{
-                active: true,
-                title: "Summary",
-                icon: "mdi-account",
-                subItems: [
-                    "Fields of interest: cyber security & software development",
-                ],
-            }, {
-                title: "Work Experience",
-                icon: "mdi-briefcase",
-                subItems: [
-                    "Summer 2020/2021. Security Intern at Aura Information Security",
-                    "Summer 2019/2020. Security Intern at Aura Information Security",
-                ],
-            }, {
-                title: "Education",
-                icon: "mdi-school",
-                subItems: [
-                    "Currently studying Software Engineering at the University of Auckland",
-                    "Available to begin graduate roles from Jan 2023",
-                    "A+ GPA (2019 & 2020 Dean's Honours list)",
-                    "2020 Dean's Leadership Programme",
-                ],
-            }],
-        };
+        return { items };
     },
 };
 </script>
