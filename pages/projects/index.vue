@@ -8,7 +8,7 @@
     >
       <v-card class="mb-3">
         <v-img v-if="project.img" :src="project.img" height="20vh" />
-        <v-card-title v-text="project.title" />
+        <v-card-title style="word-break: break-word" v-text="project.title" />
         <v-card-text v-text="project.description" />
       </v-card>
     </a>

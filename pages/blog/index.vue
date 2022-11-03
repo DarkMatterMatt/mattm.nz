@@ -8,7 +8,7 @@
     >
       <v-card class="mb-3">
         <v-img v-if="article.img" :src="article.img" height="20vh" />
-        <v-card-title v-text="article.title" />
+        <v-card-title style="word-break: break-word" v-text="article.title" />
         <v-card-text v-text="article.description" />
       </v-card>
     </NuxtLink>

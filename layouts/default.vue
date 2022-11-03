@@ -25,7 +25,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar v-if="isMobile()" app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon :aria-label="`${!drawer ? 'Open' : 'Close'} menu`" @click.stop="drawer = !drawer" />
       <v-toolbar-title class="pl-2" v-text="currentRouteName" />
     </v-app-bar>
 
