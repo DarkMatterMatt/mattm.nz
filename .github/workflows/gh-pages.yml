@@ -53,6 +53,8 @@ jobs:
 
       - name: Generate ⚡
         run: npm run generate
+        env:
+          HOSTNAME: https://mattm.nz
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3

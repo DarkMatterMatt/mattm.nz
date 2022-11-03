@@ -1,5 +1,10 @@
 import colors from "vuetify/es5/util/colors";
 
+const { HOSTNAME } = process.env;
+if (HOSTNAME == null) {
+    throw new Error("HOSTNAME is not defined");
+}
+
 export default {
     // Target: https://go.nuxtjs.dev/config-target
     target: "static",
@@ -8,9 +13,8 @@ export default {
     head: {
         titleTemplate: "%s | Matt Moran",
         meta: [
-            { charset: "utf-8" },
-            { name: "viewport", content: "width=device-width, initial-scale=1" },
-            { hid: "description", name: "description", content: "" },
+            { hid: "charset", charset: "utf-8" },
+            { name: "viewport", content: "width=device-width, initial-scale=1.0" },
         ],
         link: [
             { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -32,7 +36,7 @@ export default {
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [
-    // https://go.nuxtjs.dev/typescript
+        // https://go.nuxtjs.dev/typescript
         "@nuxt/typescript-build",
         // https://go.nuxtjs.dev/vuetify
         "@nuxtjs/vuetify",
@@ -40,9 +44,12 @@ export default {
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
-    // https://go.nuxtjs.dev/pwa
+        ["@nuxtjs/robots", { sitemap: `${HOSTNAME}/sitemap.xml` }],
+        "@/modules/sitemapRouteGenerator",
+        // https://go.nuxtjs.dev/pwa
         "@nuxtjs/pwa",
         "@nuxt/content",
+        "@nuxtjs/sitemap",
     ],
 
     // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -98,5 +105,9 @@ export default {
                 file.data = file.data.replace(/<\s*([^\s>]+)([^>]*)\/>/g, "<$1$2></$1>");
             }
         },
+    },
+
+    sitemap: {
+        hostname: HOSTNAME,
     },
 };
