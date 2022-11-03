@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { createMetaTags } from "~/util/metaTags";
+
 export default {
     async asyncData ({ $content, params }) {
         const [blog] = await $content("blog", { deep: true })
@@ -28,6 +30,15 @@ export default {
     head () {
         return {
             title: this.blog.title,
+            meta: createMetaTags({
+                url: this.$route.fullPath,
+                type: "article",
+                title: this.blog.title,
+                description: this.blog.description,
+                image: this.blog.image,
+                card: this.blog.card,
+                modifiedDateTime: this.blog.updatedAt,
+            }),
         };
     },
     mounted () {

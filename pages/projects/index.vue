@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { createMetaTags } from "~/util/metaTags";
+
 const resolveImage = data => ({
     ...data,
     img: (!data.img || data.img.includes("//"))
@@ -37,6 +39,12 @@ export default {
     },
     head: {
         title: "Projects",
+        meta: createMetaTags({
+            url: "/projects",
+            type: "website",
+            title: "Projects",
+            description: "Matt Moran's personal projects.",
+        }),
     },
     mounted () {
         this.$store.commit("layout/updateTitle", "Projects");
