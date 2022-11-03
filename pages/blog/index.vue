@@ -16,13 +16,12 @@
 </template>
 
 <script>
+import { getContentMedia } from "~/util/getContentMediaSrc";
 import { createMetaTags } from "~/util/metaTags";
 
 const resolveImage = data => ({
     ...data,
-    img: (!data.img || data.img.includes("//"))
-        ? data.img
-        : require(`~/content/${data.dir.replace(/^\/+|\/+$/g, "")}/images/${data.img}`),
+    img: (!data.img || data.img.includes("//")) ? data.img : getContentMedia(data.dir, data.img),
 });
 
 export default {
