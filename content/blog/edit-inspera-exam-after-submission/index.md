@@ -37,9 +37,9 @@ The following image demonstrates the ease of exploitation. In this example, the 
 generated every time it is loaded. This would normally be a static image containing answers that can
 be changed in the future.
 
-<blog-img src="changing-image.gif">
+<blog-video src="changing-image.mp4" emulate-gif>
   Inspera stores the image URL instead of taking a snapshot of the embedded image.
-</blog-img>
+</blog-video>
 
 A trivial solution would be to convert the image to a data URI when embedded. This would make an
 immutable copy of the image when it is copied into the exam and remove any links to external
