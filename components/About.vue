@@ -4,12 +4,13 @@
     <div class="m-small-caps text-h2 font-weight-regular mb-6 text-center">
       About Me
     </div>
-    <v-list class="m-list" :width="this.$vuetify.breakpoint.mobile ? '90%' : '600'">
+    <v-list class="m-list" :width="$vuetify.breakpoint.mobile ? '90%' : 600">
       <v-list-group
         v-for="item of items"
         :key="item.title"
         v-model="item.active"
         :prepend-icon="item.icon"
+        role="listitem"
       >
         <template #activator>
           <v-list-item-content>

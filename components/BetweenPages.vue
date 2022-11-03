@@ -2,7 +2,13 @@
   <div class="m-flex-column text-center">
     <v-tooltip :top="isPage1" :bottom="isPage2" :disabled="hideTooltips" :nudge-top="isPage1 ? -8 : 8">
       <template #activator="{ on }">
-        <a class="m-no-decoration" v-on="on" @click.prevent="onPageJumpClick">
+        <a
+          href="#"
+          :aria-label="`Scroll to ${otherPage} page`"
+          class="m-no-decoration"
+          v-on="on"
+          @click.prevent="onPageJumpClick"
+        >
           <v-icon v-ripple class="m-clickable m-rotate m-reverse text-h3 mx-4">
             mdi-menu-down
           </v-icon>

@@ -7,7 +7,7 @@
     <div class="m-subtitle-container">
       <v-tooltip bottom :disabled="hideTooltips" attach="#link-github">
         <template #activator="{ on }">
-          <a id="link-github" :href="links.github" class="m-no-decoration" v-on="on">
+          <a id="link-github" :href="links.github" aria-label="Link to GitHub" class="m-no-decoration" v-on="on">
             <v-icon v-ripple class="m-clickable text-h3 mx-2"> mdi-github </v-icon>
           </a>
         </template>
@@ -15,7 +15,7 @@
       </v-tooltip>
       <v-tooltip bottom :disabled="hideTooltips" attach="#link-blog">
         <template #activator="{ on }">
-          <NuxtLink id="link-blog" :to="links.blog" class="m-no-decoration">
+          <NuxtLink id="link-blog" :to="links.blog" aria-label="View blog" class="m-no-decoration">
             <v-icon v-ripple class="m-clickable text-h3 mx-2" v-on="on">
               mdi-pencil-box-multiple
             </v-icon>
@@ -25,7 +25,7 @@
       </v-tooltip>
       <v-tooltip bottom :disabled="hideTooltips" attach="#link-projects">
         <template #activator="{ on }">
-          <NuxtLink id="link-projects" :to="links.projects" class="m-no-decoration">
+          <NuxtLink id="link-projects" :to="links.projects" aria-label="View projects" class="m-no-decoration">
             <v-icon v-ripple class="m-clickable text-h3 mx-2" v-on="on">
               mdi-puzzle
             </v-icon>
@@ -35,7 +35,7 @@
       </v-tooltip>
       <v-tooltip bottom :disabled="hideTooltips" attach="#link-linkedin">
         <template #activator="{ on }">
-          <a id="link-linkedin" :href="links.linkedin" class="m-no-decoration" v-on="on">
+          <a id="link-linkedin" :href="links.linkedin" aria-label="Link to LinkedIn" class="m-no-decoration" v-on="on">
             <v-icon v-ripple class="m-clickable text-h3 mx-2">
               mdi-linkedin
             </v-icon>
