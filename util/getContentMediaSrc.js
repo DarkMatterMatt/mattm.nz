@@ -33,7 +33,7 @@ function getDirFromComponent (component) {
 export function getContentMedia (dir, name) {
     // trim slashes cause Node can't handle double slashes in file names?
     dir = dir.replace(/^\/+|\/+$/g, "");
-    return require(`~/content/${dir}/images/${name}`);
+    return require(`~/content/${dir}/media/${name}`);
 }
 
 export function getContentImageSrc (component) {
