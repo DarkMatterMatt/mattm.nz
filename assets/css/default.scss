@@ -60,3 +60,12 @@ table {
     max-width: 740px; 
     margin: 0 auto;
 }
+
+.blog-undecorated-links a {
+    text-decoration: none;
+}
+
+pre code {
+    /* Fix first line of code block is slightly indented. */
+    padding: 0 !important;
+}

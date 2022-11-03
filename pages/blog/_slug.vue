@@ -9,6 +9,7 @@
     <nuxt-content :document="blog" />
 
     <div class="m-flex-spacer" />
+    <br>
     <div class="text-body-2 mt-1">
       Last updated: {{ blog.updatedAt | formatDate }}
     </div>
