@@ -73,4 +73,13 @@ table {
 pre code {
     /* Fix first line of code block is slightly indented. */
     padding: 0 !important;
+
+    /* Fix <code> tag background colour is applied. */
+    background-color: inherit !important;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    /* Fix font size in Prism code blocks. */
+    font-size: 1em !important;
 }
