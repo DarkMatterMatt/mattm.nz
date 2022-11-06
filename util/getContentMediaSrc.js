@@ -36,9 +36,9 @@ export function getContentMedia (dir, name) {
     return require(`~/content/${dir}/media/${name}`);
 }
 
-export function getContentImageSrc (component) {
+export function getContentImageSrc (component, src) {
     const dir = getDirFromComponent(component);
-    return getContentMedia(dir, component.src);
+    return getContentMedia(dir, src ?? component.src);
 }
 
 export function getContentVideoSources (component) {

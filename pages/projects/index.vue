@@ -43,6 +43,7 @@ export default {
             type: "website",
             title: "Projects",
             description: "Matt Moran's personal projects.",
+            image: require("~/content/projects/projects.png"),
         }),
     },
     mounted () {

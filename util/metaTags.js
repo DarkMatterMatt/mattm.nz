@@ -1,11 +1,14 @@
 export function createMetaTags ({ url, type, title, description, image, card, modifiedDateTime }) {
-    for (const [k, v] of Object.entries({ url, type, title, description })) {
+    for (const [k, v] of Object.entries({ url, type, title, description, image })) {
         if (!v) {
             throw new Error(`Missing required parameter: ${k}`);
         }
     }
     if (!url.includes("://")) {
         url = process.env.HOSTNAME + url;
+    }
+    if (!image.includes("://")) {
+        image = process.env.HOSTNAME + image;
     }
 
     return [

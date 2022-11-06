@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { getContentImageSrc } from "~/util/getContentMediaSrc";
 import { createMetaTags } from "~/util/metaTags";
 
 export default {
@@ -35,7 +36,9 @@ export default {
                 type: "article",
                 title: this.blog.title,
                 description: this.blog.description,
-                image: this.blog.image,
+                image: this.blog.image
+                    ? getContentImageSrc(this.blog, this.blog.image)
+                    : require("~/content/blog/blog.png"),
                 card: this.blog.card,
                 modifiedDateTime: this.blog.updatedAt,
             }),

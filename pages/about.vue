@@ -16,6 +16,7 @@ export default {
             type: "website",
             title: "Matt Moran",
             description: "Matt Moran.",
+            image: require("~/content/home/home.png"),
         }),
     },
 };

@@ -43,6 +43,7 @@ export default {
             type: "website",
             title: "Blog",
             description: "A collection of Matt Moran's articles about web development and other topics.",
+            image: require("~/content/blog/blog.png"),
         }),
     },
     mounted () {
