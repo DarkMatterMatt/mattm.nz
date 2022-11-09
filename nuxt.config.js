@@ -109,6 +109,7 @@ export default {
 
     sitemap: {
         hostname: HOSTNAME,
+        trailingSlash: true,
     },
 
     content: {
