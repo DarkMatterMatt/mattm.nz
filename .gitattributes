@@ -1,0 +1,12 @@
+.babelrc    text eol=lf
+.editorconfig   text eol=lf
+.gitattributes  text eol=lf
+.gitignore  text eol=lf
+*.cjs   text eol=lf
+*.html  text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.ts    text eol=lf
+*.txt   text eol=lf
+*.vue   text eol=lf
