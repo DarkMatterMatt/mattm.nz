@@ -7,7 +7,11 @@
       class="m-no-decoration"
     >
       <v-card class="mb-3">
-        <v-img v-if="article.img" :src="article.img" height="20vh" />
+        <div v-if="article.img" style="position: relative; padding: 16px 16px 0 16px">
+          <div style="position: relative">
+            <v-img :src="article.img" contain />
+          </div>
+        </div>
         <v-card-title style="word-break: break-word" v-text="article.title" />
         <v-card-text v-text="article.description" />
       </v-card>
@@ -51,3 +55,13 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.imgContainer {
+    width: 100%;
+    min-height: 20vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
